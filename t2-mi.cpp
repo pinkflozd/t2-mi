@@ -25,7 +25,7 @@ void processt2(char* buf, int len, bool isStarting) {
 		unsigned int offset=1;
 		offset+=static_cast<unsigned char>(buf[0]);
 		std::cerr << "offset " << offset << std::endl;
-			fprintf(stderr, "packetspos:%i\n",t2packetpos);
+			//fprintf(stderr, "packetspos:%i\n",t2packetpos);
 		if(active) {
 			if(offset>1) {// && (t2packetpos + offset -1 <= t2packetsize + 10 +  pad))  //4 bytes crc
 				memcpy(&t2packet[t2packetpos],&buf[1],offset-1);
@@ -33,7 +33,7 @@ void processt2(char* buf, int len, bool isStarting) {
 				//std::cerr << "pos: " << dec << t2packetpos << " len: " << (offset-1) << " size: " << t2packetsize << std::endl;
 	//			if(t2packetpos+offset-1 >t2packetsize +4) std::cerr << "ERROR" << std::endl;
 			}
-			fprintf(stderr,"plpId:%02x\n",t2packet[7]);
+			//fprintf(stderr,"plpId:%02x\n",t2packet[7]);
 			if(t2packet[7]==plpId) {
 				fprintf(stderr,"%02x %02x<>\n",static_cast<unsigned char>(t2packet[9]),static_cast<unsigned char>(t2packet[10]));
 				int syncd = (unsigned char) t2packet[16];
@@ -73,10 +73,10 @@ void processt2(char* buf, int len, bool isStarting) {
 		//std::cerr << "pointer " << hex << (int) (unsigned char)buf[13];
 		//std::cerr << "pointer " << hex << (int) (unsigned char)buf[14];
 		//std::cerr << "pointer " << hex << (int) (unsigned char)buf[15] << std::endl;
-		fprintf(stderr, "art: ");
+		//fprintf(stderr, "art: ");
 		for(int k=0;k<128;k++)
-		fprintf(stderr, "%02x ",(unsigned char)buf[offset+k]);
-		fprintf(stderr, "\n");
+		//fprintf(stderr, "%02x ",(unsigned char)buf[offset+k]);
+		//printf(stderr, "\n");
 		
 		if((buf[offset])==0x0) { //Baseband Frame
 			t2packetsize= (unsigned char) buf[offset+4];
@@ -116,7 +116,7 @@ int main(int argc, char** argv) {
 	if(argc!=3) 
 	{
 		
-		fprintf(stderr, "Usage: %s [PID] [PLP-ID]\n", argv[0]);
+		//fprintf(stderr, "Usage: %s [PID] [PLP-ID]\n", argv[0]);
 		return 1;
 	}
 	plpId=atoi(argv[2]);
