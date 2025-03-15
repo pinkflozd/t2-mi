@@ -24,7 +24,7 @@ void processt2(char* buf, int len, bool isStarting) {
 	if(isStarting) {
 		unsigned int offset=1;
 		offset+=static_cast<unsigned char>(buf[0]);
-		std::cerr << "offset " << offset << std::endl;
+		//std::cerr << "offset " << offset << std::endl;
 			//fprintf(stderr, "packetspos:%i\n",t2packetpos);
 		if(active) {
 			if(offset>1) {// && (t2packetpos + offset -1 <= t2packetsize + 10 +  pad))  //4 bytes crc
