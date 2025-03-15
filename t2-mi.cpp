@@ -35,7 +35,7 @@ void processt2(char* buf, int len, bool isStarting) {
 			}
 			//fprintf(stderr,"plpId:%02x\n",t2packet[7]);
 			if(t2packet[7]==plpId) {
-				fprintf(stderr,"%02x %02x<>\n",static_cast<unsigned char>(t2packet[9]),static_cast<unsigned char>(t2packet[10]));
+				//fprintf(stderr,"%02x %02x<>\n",static_cast<unsigned char>(t2packet[9]),static_cast<unsigned char>(t2packet[10]));
 				int syncd = (unsigned char) t2packet[16];
 				syncd<<=8;
 				syncd |= (unsigned char) (t2packet[17]);
